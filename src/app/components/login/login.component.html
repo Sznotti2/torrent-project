@@ -1,1 +1,42 @@
-<p>login works!</p>
+<p>Bejelentkezés</p>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+	<mat-form-field class="full-width" appearance="outline">
+		<mat-label>Felhasználónév</mat-label>
+		<input type="text" matInput formControlName="name" required>
+		@if (name!.invalid && (name!.dirty || !name!.touched)) {
+			<mat-error>Név nélkül nem tudsz belépni!</mat-error>
+		}
+		@if (name!.invalid && name!.touched) {
+			<mat-error>Hoppá, ne hagyjuk uresen!</mat-error>
+		}
+	</mat-form-field>
+
+
+	<mat-form-field class="full-width" appearance="outline">
+		<mat-label>Email</mat-label>
+		<input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+		<!-- <small *ngIf="email!.touched || email!.invalid">*We'll never share your email with anyone else.</small> -->
+		@if (email!.invalid) {
+			<mat-error>Please enter a valid email address</mat-error>
+		}
+		@if (email!.dirty || email!.touched) {
+			<mat-error>Email is <strong>required</strong></mat-error>
+		}
+	</mat-form-field>
+
+	<mat-form-field class="full-width" appearance="outline">
+		<mat-label>Jelszó</mat-label>
+		<input type="password" matInput formControlName="password" required>
+		@if (password!.invalid && (password!.dirty || !password!.touched)) {
+			<mat-error>Jelszó nélkül nem tudsz belépni!</mat-error>
+		}
+		@if (password!.invalid && password!.touched) {
+			<mat-error>Hoppá, ne hagyjuk uresen!</mat-error>
+		}
+	</mat-form-field>
+
+	<button type="submit" mat-flat-button>Bejelentkezés</button>
+
+</form>

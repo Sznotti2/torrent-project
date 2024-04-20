@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { SignupComponent } from './components/signup/signup.component';
 import { TorrentsComponent } from './components/torrents/torrents.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
 	{
@@ -16,8 +16,8 @@ export const routes: Routes = [
 		component: LoginComponent
 	},
 	{
-		path: 'signup',
-		component: SignupComponent
+		path: 'register',
+		component: RegisterComponent
 	},
 	{
 		path: 'torrents',
@@ -34,7 +34,6 @@ export const routes: Routes = [
 	},
 	{
 		path: '**',
-		pathMatch: 'full',
 		component: NotFoundComponent
 	},
 ];
