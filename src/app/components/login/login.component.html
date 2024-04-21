@@ -2,7 +2,7 @@
 
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-	<mat-form-field class="full-width" appearance="outline">
+	<!-- <mat-form-field class="full-width" appearance="outline">
 		<mat-label>Felhasználónév</mat-label>
 		<input type="text" matInput formControlName="name" required>
 		@if (name!.invalid && (name!.dirty || !name!.touched)) {
@@ -11,8 +11,7 @@
 		@if (name!.invalid && name!.touched) {
 			<mat-error>Hoppá, ne hagyjuk uresen!</mat-error>
 		}
-	</mat-form-field>
-
+	</mat-form-field> -->
 
 	<mat-form-field class="full-width" appearance="outline">
 		<mat-label>Email</mat-label>
