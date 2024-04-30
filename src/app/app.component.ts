@@ -10,5 +10,5 @@ import { NavComponent } from './components/nav/nav.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'torrent-project';
+	title = 'torrent-project';
 }

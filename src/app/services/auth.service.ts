@@ -1,5 +1,5 @@
 import { Injectable, inject, signal } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, user } from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, user } from '@angular/fire/auth';
 import { Observable, from } from 'rxjs';
 import { UserInterface } from '../interfaces/user-interface';
 
@@ -23,6 +23,11 @@ export class AuthService {
 	login(email: string, password: string): Observable<void> {
 		const promise = signInWithEmailAndPassword(this.firebaseAuth, email, password)
 			.then(() => {}); // typescript ettől csöndbe marad
+		return from(promise);
+	}
+
+	logout(): Observable<void> {
+		const promise = signOut(this.firebaseAuth);
 		return from(promise);
 	}
 }

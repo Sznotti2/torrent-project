@@ -3,5 +3,11 @@
 	<a mat-button routerLink="/torrents" routerLinkActive="active" ariaCurrentWhenActive="page">Torrentek</a>
 	<a mat-button routerLink="/upload" routerLinkActive="active" ariaCurrentWhenActive="page">Feltöltés</a>
 	<span class="toolbar-spacer"></span>
-	<a mat-flat-button routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Belépés</a>
+	@if (authService.currentUserSig() == null) {
+		<a mat-flat-button routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Belépés</a>
+	}
+	@if (authService.currentUserSig()) {
+		<div class="username">{{ authService.currentUserSig()?.username }}</div>
+		<a mat-flat-button (click)="logout()" routerLinkActive="active" ariaCurrentWhenActive="page">Kilépés</a>
+	}
 </mat-toolbar>
