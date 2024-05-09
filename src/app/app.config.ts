@@ -5,6 +5,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient } from '@angular/common/http';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,6 +21,7 @@ export const appConfig: ApplicationConfig = {
   	providers: [
 		provideRouter(routes),
 		provideAnimationsAsync(),
+		provideHttpClient(),
 		importProvidersFrom([
 			provideFirebaseApp(() => initializeApp(firebaseConfig)),
 			provideAuth(() => getAuth())

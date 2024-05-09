@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, MatTabsModule, HomeComponent, TorrentsComponent, UploadComponent, MatToolbarModule, MatButtonModule],
+  imports: [RouterLink, RouterLinkActive, HomeComponent, TorrentsComponent, UploadComponent, MatToolbarModule, MatButtonModule],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })

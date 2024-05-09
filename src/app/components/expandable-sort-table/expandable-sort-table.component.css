@@ -1,0 +1,65 @@
+table {
+	width: 100%;
+}
+
+.table-container {
+	max-height: 700px;
+	max-width: calc(100vw - 200px);
+	overflow: auto;
+}
+
+.mat-mdc-form-field {
+	font-size: 14px;
+	width: 75%;
+}
+
+td,
+th {
+	width: 25%;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+	border-bottom: 1px solid transparent;
+	border-top: 1px solid transparent;
+	cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+	border-color: currentColor;
+}
+
+tr.example-detail-row {
+	height: 0;
+}
+
+.row td {
+	border-bottom-width: 0;
+}
+
+.detail {
+	overflow: hidden;
+	display: flex;
+}
+
+.diagram {
+	min-width: 80px;
+	border: 2px solid black;
+	padding: 8px;
+	font-weight: lighter;
+	margin: 8px 0;
+	height: 104px;
+}
+
+.symbol {
+	font-weight: bold;
+	font-size: 40px;
+	line-height: normal;
+}
+
+.description {
+	padding: 16px;
+}
+
+.description-attribution {
+	opacity: 0.5;
+}

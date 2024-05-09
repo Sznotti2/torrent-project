@@ -1,5 +1,3 @@
-<p>register works!</p>
-
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
 	<mat-form-field class="full-width" appearance="outline">
@@ -39,6 +37,10 @@
 		<mat-error>{{ errorMessage }}</mat-error>
 	}
 	<button type="submit" mat-flat-button>Regisztráció</button>
+
+	<div>
+		<a routerLink="/login">Már van fiókod?</a>
+	</div>
 
 </form>
 
