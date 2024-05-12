@@ -11,7 +11,6 @@ import { map, shareReplay } from 'rxjs/operators';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { TorrentsComponent } from '../torrents/torrents.component';
-import { UploadComponent } from '../upload/upload.component';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -30,7 +29,6 @@ import { AuthService } from '../../services/auth.service';
 		RouterLinkActive,
 		HomeComponent,
 		TorrentsComponent,
-		UploadComponent,
 		RouterOutlet
 	]
 })
@@ -54,7 +52,7 @@ export class ResponsiveNavComponent {
 			} else {
 				this.authService.currentUserSig.set(null);
 			}
-			console.log(this.authService.currentUserSig());
+			// console.log(this.authService.currentUserSig());
 		});
 	}
 

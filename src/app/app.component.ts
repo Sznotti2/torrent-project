@@ -18,7 +18,7 @@ export class AppComponent {
 		};
 
 		window.onblur = () => {
-			document.title = "Mi lesz velünk élküled? 😭";
+			document.title = "Mi lesz velünk nélküled? 😭";
 		}
 	}
 }

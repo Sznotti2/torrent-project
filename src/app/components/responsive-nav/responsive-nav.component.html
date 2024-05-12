@@ -6,7 +6,6 @@
 			<mat-divider></mat-divider>
 			<a mat-list-item routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a>
 			<a mat-list-item routerLink="/torrents" routerLinkActive="active" ariaCurrentWhenActive="page">Torrentek</a>
-			<a mat-list-item routerLink="/upload" routerLinkActive="active" ariaCurrentWhenActive="page">Feltöltés</a>
 			<mat-divider></mat-divider>
 			@if (authService.currentUserSig() == null) {
 				<a mat-list-item routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Belépés</a>

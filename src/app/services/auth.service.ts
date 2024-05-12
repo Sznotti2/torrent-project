@@ -1,6 +1,6 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, user } from '@angular/fire/auth';
-import { Observable, from } from 'rxjs';
+import { Observable, from, map } from 'rxjs';
 import { UserInterface } from '../interfaces/user-interface';
 
 @Injectable({
@@ -29,6 +29,12 @@ export class AuthService {
 	logout(): Observable<void> {
 		const promise = signOut(this.firebaseAuth);
 		return from(promise);
+	}
+
+	isLoggedIn(): Observable<boolean> {
+		return this.user$.pipe(
+			map(user => !!user)
+		);
 	}
 }
 
