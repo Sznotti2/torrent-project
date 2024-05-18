@@ -1,0 +1,4 @@
+img {
+    height: calc(100% - 4rem);
+    object-fit: contain;
+}

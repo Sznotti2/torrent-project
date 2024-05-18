@@ -1,4 +1,4 @@
-<mat-form-field appearance="outline">
+<mat-form-field class="cearch-container" appearance="outline">
 	<mat-label>Filter</mat-label>
 	<mat-icon matSuffix>search</mat-icon>
 	<input matInput matRipple (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
@@ -7,6 +7,7 @@
 <div class="table-container" tabindex="0">
 	<table mat-table [dataSource]="dataSource" matSort multiTemplateDataRows>
 
+		<!--! új struktúrális direktívák (@if, @for, ...)-->
 		<!-- dynamically displays the columns from columnsToDisplay -->
 		@for (column of columnsToDisplay; track column) {
 		<ng-container matColumnDef="{{column}}">
@@ -32,23 +33,28 @@
 		<!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
 		<ng-container matColumnDef="expandedDetail">
 			<td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
-				<div class="detail"
-					[@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
-					<!-- <mat-action-row>
-					<button mat-flat-button color="warn" (click)="download()">Previous</button>
-					<button mat-flat-button color="primary" (click)="download()">Next</button>
-					</mat-action-row> -->
+				<div class="detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+					<mat-action-row class="download">
+						<button mat-flat-button color="warn" (click)="download()">Letöltés</button>
 
-					<!-- <div class="diagram">
-						<div class="position">{{ element.id }}</div>
+						<button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" (click)="openImdbPage(element.imdb_code)">
+							<fa-icon [icon]="['fab', 'imdb']"></fa-icon>
+						</button>
+					</mat-action-row>
+
+					<div class="diagram">
 						<div class="symbol">{{ element.title_long }}</div>
 						<div class="name">{{ element.year }}</div>
-						<div class="weight">{{ element.rating }}</div>
-					</div> -->
+						<div class="weight">{{ element.rating }} ⭐</div>
+					</div>
+					<div class="images">
+						<img [src]="element.medium_cover_image" 
+							alt="borítókép" 
+							onerror="this.onerror=null; this.src='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdevelopers.elementor.com%2Fdocs%2Fassets%2Fimg%2Felementor-placeholder-image.png&f=1&nofb=1&ipt=f336a3c9a97d0d93e08e29c863368f93501895bc59f492e761066e0bcfbd1bb2&ipo=images';">
+					</div>
 					<div class="description">
-						<pre class="json">{{ element | json }}</pre>
-						<!-- {{ element.summary }}
-						<span class="description-attribution"> -- Expanded </span> -->
+						{{ element.summary }}
+						<span class="description-attribution"> -- Expanded </span>
 					</div>
 				</div>
 			</td>

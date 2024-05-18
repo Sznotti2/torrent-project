@@ -1,0 +1,9 @@
+.container {
+    padding-block: 4rem;
+    margin: auto;
+
+    > * {
+        text-align: center;
+        padding-block: 1rem;
+    }
+}

@@ -21,9 +21,9 @@ export class RegisterComponent {
 
 	// hogy ne kelljen ! jelet írni minden adattag után --> nonNullable
 	registerForm = this.fb.nonNullable.group({
-		name: ['', Validators.required],
-		email: ['', Validators.required, Validators.email],
-		password: ['', Validators.required, Validators.minLength(6)]
+		name: ['', [Validators.required]],
+		email: ['', [Validators.required, Validators.email]],
+		password: ['', [Validators.required, Validators.minLength(6)]]
 	})
 
 	constructor(private fb: FormBuilder) { }

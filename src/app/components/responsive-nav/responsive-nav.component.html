@@ -12,7 +12,7 @@
 			}
 			@if (authService.currentUserSig()) {
 				<a mat-list-item (click)="logout()" routerLinkActive="active" ariaCurrentWhenActive="page">Kilépés</a>
-				<div class="username">{{ authService.currentUserSig()?.username }}</div>
+				<div class="username"> Üdv nálunk {{ authService.currentUserSig()?.username }}</div>
 			}
 		</mat-nav-list>
 	</mat-sidenav>

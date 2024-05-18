@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -32,7 +32,7 @@ import { AuthService } from '../../services/auth.service';
 		RouterOutlet
 	]
 })
-export class ResponsiveNavComponent {
+export class ResponsiveNavComponent implements OnInit {
 	private breakpointObserver = inject(BreakpointObserver);
 	authService = inject(AuthService);
 
@@ -52,7 +52,6 @@ export class ResponsiveNavComponent {
 			} else {
 				this.authService.currentUserSig.set(null);
 			}
-			// console.log(this.authService.currentUserSig());
 		});
 	}
 

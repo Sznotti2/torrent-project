@@ -9,8 +9,8 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButton } from '@angular/material/button';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { JsonPipe } from '@angular/common';
-
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faImdb } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
 	selector: 'app-expandable-sort-table',
@@ -24,7 +24,7 @@ import { JsonPipe } from '@angular/common';
 		MatExpansionModule,
 		MatButton,
 		HttpClientModule,
-		JsonPipe
+		FontAwesomeModule
 	],
 	animations: [
 		trigger('detailExpand', [
@@ -43,23 +43,19 @@ export class ExpandableSortTableComponent implements AfterViewInit {
 	columnsToDisplay: string[] = ['id', 'title', 'year', 'rating']; // ezzel nem működik rendesen
 	dataSource: MatTableDataSource<any>;
 	expandedElement!: any | null;
-	// columnsToDisplay: string[] = ['id', 'name', 'progress', 'fruit'];
-	// dataSource: MatTableDataSource<UserData>;
-	// expandedElement!: UserData | null;
 	columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
 
 	@ViewChild(MatPaginator) paginator!: MatPaginator;
 	@ViewChild(MatSort) sort!: MatSort;
 
 	constructor(private http: HttpClient) {
-		// TODO https://github.com/nerkat/YTS-API-UI?tab=readme-ov-file
+		//! https://github.com/nerkat/YTS-API-UI?tab=readme-ov-file
 
 		this.fetchTorrents();
 		this.dataSource = new MatTableDataSource(this.movies);
 	}
-	//! delete me
+
 	fetchTorrents(query: string = "") {
-		//!
 		const response = this.http.get(`https://yts.mx/api/v2/list_movies.json?query_term=${query}`).subscribe((data: any) => {
 			data.data.movies.forEach((movie: any) => {
 				this.movies.push(movie);
@@ -70,6 +66,8 @@ export class ExpandableSortTableComponent implements AfterViewInit {
 			this.dataSource.data = this.movies;
 			this.dataSource.paginator = this.paginator;
 			this.dataSource.sort = this.sort;
+
+			console.log(this.movies);
 		});
 	}
 
@@ -93,5 +91,10 @@ export class ExpandableSortTableComponent implements AfterViewInit {
 
 	download() {
 		alert("download");
+	}
+
+	openImdbPage(imdbCode: string) {
+		const url = `https://www.imdb.com/title/${imdbCode}`;
+		window.open(url, '_blank');
 	}
 }

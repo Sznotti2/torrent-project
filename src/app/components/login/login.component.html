@@ -1,42 +1,34 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-	<!-- <mat-form-field class="full-width" appearance="outline">
-		<mat-label>Felhasználónév</mat-label>
-		<input type="text" matInput formControlName="name" required>
-		@if (name!.invalid && (name!.dirty || !name!.touched)) {
-			<mat-error>Név nélkül nem tudsz belépni!</mat-error>
-		}
-		@if (name!.invalid && name!.touched) {
-			<mat-error>Hoppá, ne hagyjuk uresen!</mat-error>
-		}
-	</mat-form-field> -->
-
 	<mat-form-field class="full-width" appearance="outline">
 		<mat-label>Email</mat-label>
 		<input type="email" matInput formControlName="email">
-		<!-- <small *ngIf="email!.touched || email!.invalid">*We'll never share your email with anyone else.</small> -->
-		@if (email!.invalid) {
-			<mat-error>Please enter a valid email address</mat-error>
+		@if (email!.errors?.["email"]) {
+			<mat-error>Helytelen email formátum!</mat-error>
 		}
-		@if (email!.dirty || email!.touched) {
-			<mat-error>Email is <strong>required</strong></mat-error>
+		@if (email!.errors?.["required"]) {
+			<mat-error>Emailt megadni <strong>kötelező</strong>!</mat-error>
 		}
 	</mat-form-field>
 
 	<mat-form-field class="full-width" appearance="outline">
 		<mat-label>Jelszó</mat-label>
 		<input type="password" matInput formControlName="password" required>
-		@if (password!.invalid && (password!.dirty || !password!.touched)) {
-			<mat-error>Jelszó nélkül nem tudsz belépni!</mat-error>
+		@if (password!.errors?.["minlength"]) {
+			<mat-error>A minimum hossz 6 karakter!</mat-error>
 		}
-		@if (password!.invalid && password!.touched) {
+		@if (password!.errors?.["required"]) {
 			<mat-error>Hoppá, ne hagyjuk uresen!</mat-error>
 		}
 	</mat-form-field>
 
+	@if (errorMessage) {
+		<mat-error style="text-align: center;">{{ errorMessage }}</mat-error>
+	}
+
 	<button type="submit" mat-flat-button>Bejelentkezés</button>
 
-	<div>
+	<div class="info-links">
 		<a routerLink="/forgot-password">Jelszó visszaállítása</a>
 		<a routerLink="/register">Még nincs fiókod?</a>
 	</div>

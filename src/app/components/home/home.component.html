@@ -1,1 +1,27 @@
-<p>Home Component</p>
+<mat-card class="container">
+    <mat-card-header>
+        <mat-card-title>Üdvözöllek a Torrent oldalamon!</mat-card-title>
+        <mat-card-subtitle>Most következik egy rövid bemutató</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{ "Ez egy pipe akcióban!" | reverse}}</p>
+        <mat-divider></mat-divider>
+        <p>{{ "Ez pedig egy másik pipe akcióban!" | camelize}}</p>
+        <mat-divider></mat-divider>
+        <p>{{ dummy_text | shorten: 28: '...'}}</p>
+        <mat-divider></mat-divider>
+        <p appHighlight="lightblue">Hover over this text to see a highlighted background.</p>
+        <mat-divider></mat-divider>
+        <p appTextColor="red">Click this text to change its color to red.</p>
+        <p appTextColor="green">Click this text to change its color to green.</p>
+        <p appTextColor="purple">Click this text to change its color to purple.</p>
+    </mat-card-content>
+    <mat-card-content>
+        <p>Pár fontos dolog az oldalról:</p>
+        <ul>
+            <li>Nem tökéletes (közel sem)</li>
+            <li>A keresés nem működik rendesen</li>
+            <li>Úgy fogom szórni a pontokat mint részeg cigány a bókokat, remélem te is :)</li>
+        </ul>
+    </mat-card-content>
+</mat-card>

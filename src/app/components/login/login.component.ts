@@ -21,19 +21,17 @@ export class LoginComponent {
 
 	// hogy ne kelljen ! jelet írni minden adattag után --> nonNullable
 	loginForm = this.formBuilder.nonNullable.group({
-		// name: ['', Validators.required],
-		email: ['', Validators.required, Validators.email],
-		password: ['', Validators.required]
+		email: ['', [Validators.required, Validators.email]],
+		password: ['', [Validators.required]]
 	});
 	
 	constructor( private formBuilder: FormBuilder ) {}
-	
 	
 	onSubmit(): void {
 		const rawForm = this.loginForm.getRawValue();
 		this.authService.login(rawForm.email, rawForm.password).subscribe({
 			next: () => {
-				this.router.navigateByUrl("/home");
+				this.router.parseUrl('/login');
 			},
 			error: (error) => {
 				this.errorMessage = error.code;
@@ -41,9 +39,6 @@ export class LoginComponent {
 		});
 	}
 
-	// get name() {
-	// 	return this.loginForm.get('name');
-	// }
 	get email() {
 		return this.loginForm.get('email');
 	}
