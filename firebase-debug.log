@@ -1,0 +1,42 @@
+[debug] [2024-05-19T06:33:38.808Z] ----------------------------------------------------------------------
+[debug] [2024-05-19T06:33:38.812Z] Command:       /usr/bin/node /usr/local/bin/firebase emulators:start --project ng-torrent-site
+[debug] [2024-05-19T06:33:38.813Z] CLI Version:   13.9.0
+[debug] [2024-05-19T06:33:38.814Z] Platform:      linux
+[debug] [2024-05-19T06:33:38.814Z] Node Version:  v18.19.0
+[debug] [2024-05-19T06:33:38.815Z] Time:          Sun May 19 2024 08:33:38 GMT+0200 (közép-európai nyári idő)
+[debug] [2024-05-19T06:33:38.815Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-05-19T06:33:39.015Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-05-19T06:33:39.016Z] > authorizing via signed-in user (tothbalint2k1@gmail.com)
+[info] i  emulators: Starting emulators: hosting {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: hosting"}}
+[debug] [2024-05-19T06:33:39.032Z] [logging] Logging Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-19T06:33:39.033Z] [hosting] Hosting Emulator only supports listening on one address (127.0.0.1). Not listening on ::1
+[debug] [2024-05-19T06:33:39.033Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400},{"address":"::1","family":"IPv6","port":4400}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"hosting":[{"address":"127.0.0.1","family":"IPv4","port":5000}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2024-05-19T06:33:39.053Z] [hub] writing locator at /tmp/hub-ng-torrent-site.json
+[debug] [2024-05-19T06:33:39.112Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/ng-torrent-site/sites 
+[debug] [2024-05-19T06:33:40.147Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/ng-torrent-site/sites 200
+[debug] [2024-05-19T06:33:40.148Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/ng-torrent-site/sites {"sites":[{"name":"projects/ng-torrent-site/sites/ng-torrent-site","defaultUrl":"https://ng-torrent-site.web.app","appId":"1:384224161934:web:7ad9179cdee0e3754cd9df","type":"DEFAULT_SITE"}]}
+[debug] [2024-05-19T06:33:40.149Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ng-torrent-site/webApps/1:384224161934:web:7ad9179cdee0e3754cd9df/config [none]
+[debug] [2024-05-19T06:33:40.827Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ng-torrent-site/webApps/1:384224161934:web:7ad9179cdee0e3754cd9df/config 200
+[debug] [2024-05-19T06:33:40.828Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ng-torrent-site/webApps/1:384224161934:web:7ad9179cdee0e3754cd9df/config {"projectId":"ng-torrent-site","appId":"1:384224161934:web:7ad9179cdee0e3754cd9df","storageBucket":"ng-torrent-site.appspot.com","apiKey":"AIzaSyD16yAztFYLbTkHdgg1jr9hysW0k0WoTfA","authDomain":"ng-torrent-site.firebaseapp.com","messagingSenderId":"384224161934"}
+[debug] [2024-05-19T06:33:40.841Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ng-torrent-site [none]
+[debug] [2024-05-19T06:33:41.131Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ng-torrent-site 200
+[debug] [2024-05-19T06:33:41.132Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ng-torrent-site {"projectId":"ng-torrent-site","projectNumber":"384224161934","displayName":"ng-torrent-site","name":"projects/ng-torrent-site","resources":{"hostingSite":"ng-torrent-site"},"state":"ACTIVE","etag":"1_e8c70f90-ada3-4787-ac4c-2564e8bf27ee"}
+[info] i  hosting[ng-torrent-site]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] ✔  hosting[ng-torrent-site]: Local server: http://127.0.0.1:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://127.0.0.1:5000\u001b[22m\u001b[24m"}}
+[warn] ⚠  emulators: The Emulator UI is not starting, either because none of the running emulators have a UI component or the Emulator UI cannot determine the Project ID. Pass the --project flag to specify a project. {"metadata":{"emulator":{"name":"hub"},"message":"The Emulator UI is not starting, either because none of the running emulators have a UI component or the Emulator UI cannot determine the Project ID. Pass the --project flag to specify a project."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+└─────────────────────────────────────────────────────────────┘
+
+┌──────────┬────────────────┐
+│ Emulator │ Host:Port      │
+├──────────┼────────────────┤
+│ Hosting  │ 127.0.0.1:5000 │
+└──────────┴────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
