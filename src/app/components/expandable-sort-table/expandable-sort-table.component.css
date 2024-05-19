@@ -38,21 +38,19 @@ tr.example-detail-row {
 }
 
 .detail {
-	/* overflow: hidden; */
 	display: flex;
 	flex-direction: column;
 }
 
 .diagram {
 	min-width: 80px;
-	border: 2px solid black;
 	padding: 8px;
-	font-weight: lighter;
 	margin: 8px 0;
-	height: 104px;
+	font-weight: lighter;
+	border: 2px solid black;
 }
 
-.symbol {
+.title {
 	font-weight: bold;
 	font-size: 40px;
 	line-height: normal;
@@ -64,4 +62,10 @@ tr.example-detail-row {
 
 .description-attribution {
 	opacity: 0.5;
+}
+
+.icon-button {
+	float: left;
+	margin-right: 5.rem;
+	font-size: 2rem;
 }

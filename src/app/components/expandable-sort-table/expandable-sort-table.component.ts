@@ -39,6 +39,7 @@ import { faImdb } from '@fortawesome/free-brands-svg-icons';
 export class ExpandableSortTableComponent implements AfterViewInit {
 	movies: any[] = [];
 	sortBy: string = "date_added";
+	faImdb = faImdb;
 
 	columnsToDisplay: string[] = ['id', 'title', 'year', 'rating']; // ezzel nem működik rendesen
 	dataSource: MatTableDataSource<any>;
@@ -89,8 +90,8 @@ export class ExpandableSortTableComponent implements AfterViewInit {
 		}
 	}
 
-	download() {
-		alert("download");
+	download(torrentUrl: any) {
+		window.open(torrentUrl[0].url);
 	}
 
 	openImdbPage(imdbCode: string) {
